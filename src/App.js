@@ -1,4 +1,4 @@
-import './App.css';
+import classes from './App.module.css';
 import Header from './components/header';
 import Colors from './pages/colors';
 import Home from './pages/home-page';
@@ -8,7 +8,7 @@ import Cart from './pages/cart';
 
 function App() {
   return (
-    <div >
+    <div className={classes.setup}>
       <Header />
       <Routes>
         <Route exact path='/' element={<Home />} />

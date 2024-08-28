@@ -5,17 +5,22 @@ import Home from './pages/home-page';
 import { Routes, Route } from 'react-router-dom';
 import Portfolio from './pages/portfolio';
 import Cart from './pages/cart';
+import Footer from './components/footer';
 
 function App() {
   return (
     <div className={classes.setup}>
       <Header />
-      <Routes>
+      <div className={classes.main}>
+      <Routes >
         <Route exact path='/' element={<Home />} />
         <Route exact path='/colors' element={<Colors />} />
         <Route exact path='/portfolio' element={<Portfolio />} />
         <Route exact path='/cart' element={<Cart />} />
       </Routes>
+      </div>
+      <Footer />
+
     </div>
   );
 }

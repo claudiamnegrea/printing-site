@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream:src/pages/portfolio/index.jsx
-import Header from "../../components/header";
-
-export default function Portfolio() {
-  return (
-    <div>
-      Portfolio
-    </div>
-  );
-}
-=======
 import ProductTile from "../../components/product-tile";
 import classes from "../style.module.css";
 import classes_products from "./style.module.css";
@@ -33,4 +22,4 @@ export default function Portfolio() {
     </div>
   );
 }
->>>>>>> Stashed changes:printing-site/src/pages/portfolio/index.jsx
+

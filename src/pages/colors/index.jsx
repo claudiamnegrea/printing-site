@@ -1,17 +1,6 @@
-<<<<<<< Updated upstream:src/pages/colors/index.jsx
-import Header from "../../components/header";
-
-export default function Colors() {
-  return (
-    <div>
-      Colors
-    </div>
-  );
-}
-=======
 import ColorTile from "../../components/color-tile";
 import classes from "./style.module.css";
-import classes_page from '../style.module.css';
+import classes_page from "../style.module.css";
 
 export default function Colors() {
   return (
@@ -26,4 +15,3 @@ export default function Colors() {
     </div>
   );
 }
->>>>>>> Stashed changes:printing-site/src/pages/colors/index.jsx

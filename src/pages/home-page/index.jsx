@@ -1,33 +1,9 @@
-<<<<<<< Updated upstream:src/pages/home-page/index.jsx
-import Header from "../../components/header";
 import { useContext } from "react";
 import { GlobalContext } from "../../context";
+import classes from "../style.module.css";
 
 export default function Home() {
+  const { pending, setPending } = useContext(GlobalContext);
 
-  const {  pending, setPending } =
-  useContext(GlobalContext);
-
-  return (
-    <div>
-      Home page
-    </div>
-  );
+  return <p className={classes.title}>Welcome !</p>;
 }
-=======
-import { useContext } from "react";
-import { GlobalContext } from "../../context";
-import classes from '../style.module.css';
-
-export default function Home() {
-
-  const {  pending, setPending } =
-  useContext(GlobalContext);
-
-  return (
-    <p className={classes.title}>
-      Welcome !
-    </p>
-  );
-}
->>>>>>> Stashed changes:printing-site/src/pages/home-page/index.jsx

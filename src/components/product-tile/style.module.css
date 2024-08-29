@@ -8,6 +8,8 @@
     border-radius: 20px;
     background-color: #FBF5F3;
     box-shadow: 1px 2px 4px 6px #e6e6e6;
+    overflow: hidden;
+    margin: 10px;
 }
 
 .photo {
@@ -35,6 +37,7 @@
     margin-top: 13px;
     margin-left: 15px;
     margin-right: 15px;
+    overflow:hidden;
 }
 .price{
     width: 115px;

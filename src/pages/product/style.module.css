@@ -1,49 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-.title{
-    margin-top: 75px;
-    margin-left: 490px;
-    margin-right: 490px;
-    margin-bottom: 50px;
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.title {
     font-family: 'Inter';
     font-weight: 400;
     font-size: 56px;
     color: #172B3A;
 }
 
-.content{
-    margin:40px;
-    display: flex;
-    flex-direction: row;
+.content {
+    margin: 40px;
 }
 
-.image{
+.image {
     width: 550px;
     height: 550px;
     border-radius: 20px;
     background-color: #D9D9D9;
 }
 
-.details{
- margin-left: 70px;
-}
-.firstrow{
+
+.firstrow {
     display: flex;
     flex-direction: row;
-    align-content: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    gap:20px;
 }
 
-.price{
+.price {
     align-content: center;
     font-family: 'Inter';
     font-weight: 200;
     font-size: 26px;
     color: #172B3A;
 }
-.cart{
-    
+.chakra-select__wrapper css-42b2qy{
+    width: 50px;
+}
+.chakra-select__icon-wrapper css-162mkon{
+    width: 0;
+    height: 0;
+}
+
+
+.colors {
+    width: 50%;
+    font-family: 'Inter';
+    font-weight: 300;
+    font-size: 18px;
+    color: #172B3A;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-color: #D9D9D9;
+    background-color: #FBF5F3;
+}
+
+.cart {
+
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #EAB948;
     border-color: #E7B236;
     stroke: #E7B236;
@@ -60,7 +84,8 @@
     margin-right: 15px;
     margin-bottom: 20px;
 }
-.description{
+
+.description {
     align-content: center;
     font-family: 'Inter';
     font-weight: 200;

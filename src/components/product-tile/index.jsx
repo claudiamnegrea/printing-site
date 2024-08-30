@@ -1,10 +1,14 @@
 import classes from "./style.module.css";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../store/cart-slice";
+import { useDispatch } from "react-redux";
 
 export default function ProductTile({ product }) {
-  function handleSeeProduct() {
-    return;
+  const dispatch = useDispatch();
+  function handleAddToCart() {
+    dispatch(addToCart(product));
   }
+
 
   return (
     <div className={classes.wrapper}>
@@ -17,11 +21,11 @@ export default function ProductTile({ product }) {
       <div className={classes.price}>{product?.price}</div>
       <div className={classes.buttons}>
         <Link to={`/product/${product?.id}`}>
-          <button className={classes.see_button} onClick={handleSeeProduct()}>
+          <button className={classes.see_button} >
             See product
           </button>
         </Link>
-        <button className={classes.buy_button}>Add to cart</button>
+        <button className={classes.buy_button} onClick={handleAddToCart}>Add to cart</button>
       </div>
     </div>
   );

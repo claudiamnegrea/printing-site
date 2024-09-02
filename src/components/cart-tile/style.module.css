@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.product_tile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 140px;
+    border-radius: 20px;
+    background-color: #FBF5F3;
+    box-shadow: 2px 4px 12px #d3d3d3;
+    padding: 20px;
+    margin-bottom: 10px;
+    gap:30px;
+}
+.image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.name {
+    font-family: 'Inter';
+    font-weight: 300;
+    font-weight: 300;
+    font-size: 20px;
+    color: #172B3A;
+}
+
+.price {
+    font-family: 'Inter';
+    font-weight: 100;
+    font-size: 18px;
+    color: #172B3A;
+}

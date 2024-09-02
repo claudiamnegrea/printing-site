@@ -2,6 +2,7 @@ import classes from "../style.module.css";
 import cart_class from "./style.module.css";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import CartTile from "../../components/cart-tile";
 
 export default function Cart() {
   const [totalCart, setTotalCart] = useState(0);
@@ -15,25 +16,28 @@ export default function Cart() {
   return (
     <div>
       <div className={classes.title}>Cart</div>
-      <div>
-        <div className={cart_class.wrapper}>
-          <div className={cart_class.products}>
-            <p>List of products</p>
-            {cart.map((cartItem) => (
-              <div className={cart_class.product_tile}>
-                <img
-                  src={cartItem.image}
-                  alt={cartItem.title}
-                  className={cart_class.image}
-                />
-                <div className={cart_class.text}>
-                  <p className={cart_class.name}>{cartItem.title}</p>
-                  <p className={cart_class.price}>{cartItem.price}</p>
-                </div>
+
+      <div className={cart_class.wrapper}>
+        <div className={cart_class.products}>
+          <p className={cart_class.total_products}>List of products</p>
+          <div>
+            {cart && cart.length ? (
+              <div>
+                {cart.map((cartItem) => (
+                  <CartTile
+                    cartItem={cartItem}
+                    className={cart_class.CartTile}
+                  />
+                ))}
               </div>
-            ))}
+            ) : (
+              <div className={cart_class.empty}> Cart is empty</div>
+            )}
           </div>
-          <div className={cart_class.total}><p>Total</p></div>
+        </div>
+        <div className={cart_class.total}>
+          <p>Total items: {cart.length}</p>
+          <p>Total: {totalCart}</p>
         </div>
       </div>
     </div>

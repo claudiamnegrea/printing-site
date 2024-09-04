@@ -1,12 +1,13 @@
 import classes from "../style.module.css";
 import cart_class from "./style.module.css";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect, useContext } from "react";
 import CartTile from "../../components/cart-tile";
+import { GlobalContext } from "../../context";
 
 export default function Cart() {
   const [totalCart, setTotalCart] = useState(0);
-  const { cart } = useSelector((state) => state);
+  const { cart } = useContext(GlobalContext);
+
   console.log(cart, totalCart);
 
   useEffect(() => {

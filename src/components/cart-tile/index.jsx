@@ -4,11 +4,12 @@ import { useDispatch } from "react-redux";
 import { removeFromCart } from "../../store/cart-slice";
 
 export default function CartTile({ cartItem }) {
-
   const dispatch = useDispatch();
+
   function handleRemove() {
     dispatch(removeFromCart(cartItem.id));
   }
+
   return (
     <div className={classes.product_tile}>
       <img

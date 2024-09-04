@@ -7,6 +7,7 @@ import Portfolio from './pages/portfolio';
 import Cart from './pages/cart';
 import Footer from './components/footer';
 import Product from './pages/product';
+import BackToTop from './components/back-to-top';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path='/product/:id' element={<Product />} />
       </Routes>
       </div>
+      <BackToTop />
       <Footer />
 
     </div>

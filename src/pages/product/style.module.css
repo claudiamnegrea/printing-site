@@ -3,13 +3,15 @@
 .wrapper {
     display: flex;
     flex-direction: row;
-    margin: 20px;
+    margin: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .title {
     font-family: 'Inter';
     font-weight: 400;
-    font-size: 56px;
+    font-size: 24px;
     color: #172B3A;
 }
 
@@ -18,8 +20,8 @@
 }
 
 .image {
-    width: 550px;
-    height: 550px;
+    width: 350px;
+    height: 350px;
     border-radius: 20px;
     background-color: #D9D9D9;
 }
@@ -38,17 +40,20 @@
     align-content: center;
     font-family: 'Inter';
     font-weight: 200;
-    font-size: 26px;
+    font-size: 22px;
     color: #172B3A;
 }
 .chakra-select__wrapper css-42b2qy{
     width: 50px;
 }
 .chakra-select__icon-wrapper css-162mkon{
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
 }
-
+.chakra-select__icon{
+    width: 0px;
+    height: 0px;
+}
 
 .colors {
     width: 50%;

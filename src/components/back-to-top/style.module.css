@@ -1,0 +1,25 @@
+.button {
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: #FBF5F3;
+  border: #e6e6e6;
+  border-radius: 20px;
+  box-shadow: 1px 1px 4px  0px #e5e5e5;
+  display: flex;
+  justify-content: center;
+  padding: 6px;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  bottom: 50px;
+  right: 50px;
+  stroke: #172B3A;
+  fill: #172B3A;
+  padding: 2px;
+}

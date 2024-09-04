@@ -9,7 +9,6 @@ export default function ProductTile({ product }) {
     dispatch(addToCart(product));
   }
 
-
   return (
     <div className={classes.wrapper}>
       <img
@@ -21,11 +20,11 @@ export default function ProductTile({ product }) {
       <div className={classes.price}>{product?.price}</div>
       <div className={classes.buttons}>
         <Link to={`/product/${product?.id}`}>
-          <button className={classes.see_button} >
-            See product
-          </button>
+          <button className={classes.see_button}>See product</button>
         </Link>
-        <button className={classes.buy_button} onClick={handleAddToCart}>Add to cart</button>
+        <button className={classes.buy_button} onClick={handleAddToCart}>
+          Add to cart
+        </button>
       </div>
     </div>
   );

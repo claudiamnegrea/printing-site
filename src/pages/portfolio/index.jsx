@@ -6,22 +6,35 @@ import classes_products from "./style.module.css";
 export default function Portfolio() {
   const [listOfProducts, setListOfProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [countElements, setCountElements] = useState(0);
+  const [disableButton, setDisableButton] = useState(false);
 
   async function fetchListOfProducts() {
-    setLoading(true);
-    const response = await fetch("https://fakestoreapi.com/products");
-    const result = await response.json();
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://fakestoreapi.com/products`
+      );
+      const result = await response.json();
 
-    if (result) {
-      setListOfProducts(result);
-      setLoading(false);
+      if (result) {
+        setListOfProducts(result);
+        setLoading(false);
+      }
       console.log(result);
+    } catch (e) {
+      setLoading(false);
+      console.log(e);
     }
   }
 
   useEffect(() => {
     fetchListOfProducts();
-  }, []);
+  }, [countElements]);
+
+  useEffect(() => {
+    if (listOfProducts && listOfProducts.length === 20) setDisableButton(true);
+  });
 
   return (
     <div>
@@ -36,6 +49,16 @@ export default function Portfolio() {
                   <ProductTile product={productItem} />
                 ))
               : null}
+          </div>
+          <div>
+            <button
+              disabled={disableButton}
+              onClick={() => setCountElements(countElements + 1)}
+              className="button-container"
+            >
+              Load more products
+            </button>
+            {disableButton ? <p>You have reached the limit</p> : null}
           </div>
         </div>
       )}

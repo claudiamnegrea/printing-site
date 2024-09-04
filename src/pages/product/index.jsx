@@ -5,10 +5,13 @@ import classes from "./style.module.css";
 import { Select } from "@chakra-ui/react";
 import { colors } from "../../data.js";
 import { addToCart } from "../../store/cart-slice.js";
+import { useDispatch } from "react-redux";
 
 export default function Product() {
   const { id } = useParams();
   const { productData, setProductData } = useContext(GlobalContext);
+  const [color,setColor] = useState('')
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getProductDetails() {
@@ -20,6 +23,10 @@ export default function Product() {
     }
     getProductDetails();
   });
+  
+  function handleAddToCart(){
+    dispatch(addToCart(productData));
+  }
 
   return (
     <div className={classes.wrapper}>
@@ -33,12 +40,12 @@ export default function Product() {
         <p className={classes.price}>{productData?.price}</p>
         <div className={classes.details}>
           <div className={classes.firstrow}>
-            <Select className={classes.colors} placeholder="Select Color">
+            <Select className={classes.colors} placeholder="Select Color" onChange={(event)=>{setColor(event.target.value)}}>
               {colors.map((color) => (
                 <option value={color.value}>{color.label}</option>
               ))}
             </Select>
-            <button className={classes.cart}>
+            <button disabled={color===''} className={classes.cart} onClick={handleAddToCart}>
               Add to cart
             </button>
           </div>

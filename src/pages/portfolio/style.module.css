@@ -1,8 +1,8 @@
 .product_tiles{
-    display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    padding-left: 130px;
-    padding-right: 130px;
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 100px;
+    padding-right: 100px;
     padding-top: 20px;
     padding-bottom: 20px;
 }

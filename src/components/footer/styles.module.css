@@ -1,37 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@media screen and (min-width: 750px) {
+    .wrapper {
+        flex-direction: row;
+        gap: 100px;
+    }
+}
 
-.wrapper{
+@media screen and (max-width: 750px) {
+    .wrapper {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+}
+
+.wrapper {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    gap: 100px;
     background-color: #01353C;
     min-height: 210px;
 
 }
-.wrapper h1{
+
+.wrapper h1 {
     color: #FBF5F3;
     font-family: 'Inter';
     font-weight: 200;
     font-size: 18px;
 }
-.wrapper p{
+
+.wrapper p {
     color: #FBF5F3;
     font-family: 'Inter';
     font-weight: 100;
     font-size: 15px;
 }
-.phone{
+
+.phone {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
-.email{
+
+.email {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
-.insta{
+
+.insta {
     display: flex;
     flex-direction: row;
     gap: 10px;

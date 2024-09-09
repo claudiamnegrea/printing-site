@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+@media screen and (min-width: 750px) {
+    .menu {
+        display: none;
+    }
+
+    .links {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .links {
+        display: none;
+    }
+}
+
+
 .header {
     display: flex;
     justify-content: center;
@@ -10,6 +27,7 @@
     border-bottom-right-radius: 15px;
     align-items: center;
     text-decoration: none;
+    gap: 10px;
 }
 
 a:link {
@@ -24,7 +42,6 @@ a:link {
 
 .header ul {
     margin: 36px;
-    display: flex;
     list-style: none;
     gap: 26px;
 }
@@ -33,44 +50,143 @@ a:link {
     cursor: pointer;
     font-family: 'Inter';
     font-weight: 200;
-    font-size: 20px;
+    font-size: 18px;
     color: #172B3A;
 }
 
 .search {
-    width: 30px;
-    height: 30px;
-    margin-left: 100px;
-    margin-right: 80px;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     align-self: center;
     outline: #172B3A;
     stroke-width: 0.7;
+    overflow: visible;
 
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile_items {
+    position: absolute;
+    display: none;
+    background-color: #FBF5F3;
+    color: #172B3A;
+    overflow: visible;
+    border-radius: 2px;
+    border-color: #FAF2F0;
+    box-shadow: 1px 1px 2px 1px #e6e6e6;
+}
+
+.profile_items p {
+    font-family: 'Inter';
+    font-weight: 200;
+    font-size: 14px;
+    color: #172B3A;
+    padding: 3px;
+}
+
+.profile_items p:hover {
+    color: #2b5371;
+}
+
+.profile {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-self: center;
+    outline: #172B3A;
+    overflow: visible;
+}
+
+.dropdown:hover .profile_items {
+    display: block;
+}
+
 
 .header button {
     display: flex;
     flex-direction: row;
-    margin: 20px;
+    margin: 5px;
     border-radius: 16px;
     border-color: #b78103;
     border-width: 2px;
     background: #EAB948;
-    width: 150px;
-    height: 60px;
-    padding: 10px;
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    justify-items: center;
     align-items: center;
     font-family: 'Inter';
     font-weight: 200;
-    font-size: 20px;
+    font-size: 18px;
     color: #172B3A;
+    gap: 20px;
+}
+
+.menu {
+    width: 5;
+    cursor: pointer;
 }
 
 .cart {
-    width: 30px;
-    height: 30px;
+    position: relative;
+}
+
+.cart_icon_number {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart_icon {
+    width: 20px;
+    height: 20px;
     outline: #172B3A;
     stroke: none;
-    margin-left: 50px;
+}
+
+.number {
+    position: absolute;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    font-size: 8px;
+    font-family: 'inter';
+    color: #FAF2F0;
+    background-color: #172B3A;
+    border-radius: 3px;
+}
+
+.open_menu {
+    width: 100vmax;
+    position: absolute;
+    display: block;
+    margin: 10px;
+    background-color: #FBF5F3;
+    overflow: visible;
+    transition: all;
+    margin: 10px;
+    padding: 20px;
+    padding-top: 110px;
+}
+
+.open_menu li {
+    cursor: pointer;
+    list-style: none;
+}
+
+
+.back_button {
+    color: #172B3A;
+    font-family: "Inter";
+    font-weight: 200;
+    font-size: 24px;
 
 }

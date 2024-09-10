@@ -8,33 +8,71 @@ export default function Portfolio() {
   const [loading, setLoading] = useState(false);
   const [countElements, setCountElements] = useState(0);
   const [disableButton, setDisableButton] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
+
 
   async function fetchListOfProducts() {
     try {
       setLoading(true);
-      const response = await fetch(
-        `https://fakestoreapi.com/products`
+      const response = await fetch(`https://fakestoreapi.com/products`);
+      const response_cat = await fetch(
+        "https://fakestoreapi.com/products/categories"
       );
       const result = await response.json();
+      const result_cat = await response_cat.json();
 
       if (result) {
         setListOfProducts(result);
+        setFilteredItems(result);
+        setCategories(result_cat);
         setLoading(false);
       }
       console.log(result);
+      console.log(result_cat);
     } catch (e) {
       setLoading(false);
       console.log(e);
     }
   }
 
+  const handleCategories = (e) => {
+    if (selectedCategories.includes(e.target.value)) {
+      setSelectedCategories((prev) =>
+        prev.filter((item) => item !== e.target.value)
+      );
+    } else {
+      setSelectedCategories((prev) => [...prev, e.target.value]);
+    }
+    console.log((selectedCategories));
+    
+  };
+
+  function filterProducts() {
+    let productsCopy = listOfProducts.slice();
+    if (selectedCategories && selectedCategories.length > 0) {
+      productsCopy = productsCopy.filter((item) =>
+        selectedCategories.includes(item.category)
+      );
+    }
+    console.log(productsCopy);
+    if (productsCopy) {
+      setFilteredItems(
+        listOfProducts.filter((item) => productsCopy.includes(item))
+      );
+    }
+  }
+  function handleClearFilter() {
+    setSelectedCategories([]);
+  }
   useEffect(() => {
     fetchListOfProducts();
   }, [countElements]);
 
   useEffect(() => {
-    if (listOfProducts && listOfProducts.length === 20) setDisableButton(true);
-  });
+    filterProducts();
+  }, [selectedCategories]);
 
   return (
     <div>
@@ -43,12 +81,40 @@ export default function Portfolio() {
       ) : (
         <div>
           <p className={classes.title}>PORTFOLIO</p>
-          <div className={classes_products.product_tiles}>
-            {listOfProducts && listOfProducts.length
-              ? listOfProducts.map((productItem) => (
-                  <ProductTile product={productItem} />
-                ))
-              : null}
+          <div className={classes_products.wrapper}>
+            <div className={classes_products.filters}>
+              <p className={classes_products.filter_title}>FILTERS</p>
+              <div className={classes_products.filters_list}>
+                {categories.map((cat) => (
+                  <label>
+                    <input
+                      type="checkbox"
+                      value={cat}
+                      onChange={handleCategories}
+                      checked={selectedCategories.includes(cat)}
+
+                    />
+                    {cat}
+                  </label>
+                ))}
+              </div>
+              <div>
+                {selectedCategories && selectedCategories.length ? (
+                  <div>
+                    <p className={classes_products.clear_filters} onClick={handleClearFilter}>
+                      Clear Filters
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+            <div className={classes_products.product_tiles}>
+              {filteredItems.length > 0
+                ? filteredItems.map((productItem) => (
+                    <ProductTile product={productItem} />
+                  ))
+                : null}
+            </div>
           </div>
           <div>
             <button

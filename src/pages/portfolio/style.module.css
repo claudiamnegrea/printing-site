@@ -1,8 +1,47 @@
-.product_tiles{
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+.wrapper{
     display: flex;
+    flex-direction: row;
+}
+
+.product_tiles{
+    max-width: 1450px;
+    display: flex;
+    justify-content: center;
     flex-flow: row wrap;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+.filters{
+    margin: 30px;
+    width: 250px;
+    border: #172B3A;
+
+}
+.filter_title{
+    font-family: "Inter";
+    font-weight: 200;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.filters_list{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+
+.clear_filters{
+    cursor: pointer;
+    padding: 10px;
+    font-family: "Inter";
+    font-weight: 200;
+    font-size: 12px;
+    color: #172b3a8c;
 }

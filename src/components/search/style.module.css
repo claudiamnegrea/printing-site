@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.wrapper input {
+    border-radius: 20px;
+    background-color: #2998a6;
+    color: #172B3A;
+    font-family: "Inter";
+    font-weight: 200;
+    font-size: 16px;
+}
+
+.search {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-self: center;
+    outline: #172B3A;
+    stroke-width: 0.7;
+    overflow: visible;
+    cursor: pointer;
+
+}

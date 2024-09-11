@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import ProductTile from "../../components/product-tile";
 import classes from "../style.module.css";
 import classes_products from "./style.module.css";
+import { useContext } from "react";
+import { GlobalContext } from "../../context";
 
 export default function Portfolio() {
   const [listOfProducts, setListOfProducts] = useState([]);
@@ -11,7 +13,8 @@ export default function Portfolio() {
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-
+  const [sortType, setSortType] = useState("relevant");
+  const { search, showSearch } = useContext(GlobalContext);
 
   async function fetchListOfProducts() {
     try {
@@ -38,6 +41,8 @@ export default function Portfolio() {
   }
 
   const handleCategories = (e) => {
+    setSortType("relevant");
+    handleSort();
     if (selectedCategories.includes(e.target.value)) {
       setSelectedCategories((prev) =>
         prev.filter((item) => item !== e.target.value)
@@ -45,12 +50,17 @@ export default function Portfolio() {
     } else {
       setSelectedCategories((prev) => [...prev, e.target.value]);
     }
-    console.log((selectedCategories));
-    
+    console.log(selectedCategories);
   };
 
   function filterProducts() {
     let productsCopy = listOfProducts.slice();
+
+    if (showSearch && search) {
+      productsCopy = productsCopy.filter((item) =>
+        item.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
     if (selectedCategories && selectedCategories.length > 0) {
       productsCopy = productsCopy.filter((item) =>
         selectedCategories.includes(item.category)
@@ -63,16 +73,37 @@ export default function Portfolio() {
       );
     }
   }
+
   function handleClearFilter() {
     setSelectedCategories([]);
   }
+
+  function handleSort() {
+    let fpCopy = filteredItems.slice();
+
+    switch (sortType) {
+      case "low-high":
+        setFilteredItems(fpCopy.sort((a, b) => a.price - b.price));
+        break;
+      case "high-low":
+        setFilteredItems(fpCopy.sort((a, b) => b.price - a.price));
+        break;
+      default:
+        filterProducts();
+    }
+  }
+
   useEffect(() => {
     fetchListOfProducts();
   }, [countElements]);
 
   useEffect(() => {
     filterProducts();
-  }, [selectedCategories]);
+  }, [selectedCategories, search, showSearch]);
+
+  useEffect(() => {
+    handleSort();
+  }, [sortType]);
 
   return (
     <div>
@@ -92,7 +123,6 @@ export default function Portfolio() {
                       value={cat}
                       onChange={handleCategories}
                       checked={selectedCategories.includes(cat)}
-
                     />
                     {cat}
                   </label>
@@ -101,19 +131,34 @@ export default function Portfolio() {
               <div>
                 {selectedCategories && selectedCategories.length ? (
                   <div>
-                    <p className={classes_products.clear_filters} onClick={handleClearFilter}>
+                    <p
+                      className={classes_products.clear_filters}
+                      onClick={handleClearFilter}
+                    >
                       Clear Filters
                     </p>
                   </div>
                 ) : null}
               </div>
             </div>
-            <div className={classes_products.product_tiles}>
-              {filteredItems.length > 0
-                ? filteredItems.map((productItem) => (
-                    <ProductTile product={productItem} />
-                  ))
-                : null}
+            <div className={classes_products.main_body}>
+              <div className={classes_products.sort}>
+                <select
+                  onChange={(e) => setSortType(e.target.value)}
+                  value={sortType}
+                >
+                  <option value="relevant">Sort by Relevant</option>
+                  <option value="high-low">Sort by Price(high to low)</option>
+                  <option value="low-high">Sort by Price(low to high)</option>
+                </select>
+              </div>
+              <div className={classes_products.product_tiles}>
+                {filteredItems.length > 0
+                  ? filteredItems.map((productItem) => (
+                      <ProductTile product={productItem} />
+                    ))
+                  : null}
+              </div>
             </div>
           </div>
           <div>

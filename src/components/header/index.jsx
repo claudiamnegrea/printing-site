@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import classes from "./style.module.css";
-import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { CgProfile } from "react-icons/cg";
 import { BsCart2 } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { SlMenu } from "react-icons/sl";
 import { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
+import Search from "../search";
 
 export default function Header() {
   const [visible, setVisible] = useState(false);
@@ -28,7 +28,7 @@ export default function Header() {
             <li>Custom design</li>
           </NavLink>
         </ul>
-        <HiOutlineMagnifyingGlass className={classes.search} />
+        <Search />
         <div className={classes.dropdown}>
           <CgProfile className={classes.profile} />
           <div className={classes.profile_items}>
@@ -55,18 +55,18 @@ export default function Header() {
             >
               Back
             </p>
-              <NavLink to="/" onClick={() => setVisible(false)}>
-                <li>Home page</li>
-              </NavLink>
-              <NavLink to="/colors" onClick={() => setVisible(false)}>
-                <li>Colors</li>
-              </NavLink>
-              <NavLink to="/portfolio" onClick={() => setVisible(false)}>
-                <li>Portfolio</li>
-              </NavLink>
-              <NavLink to="/custom-design" onClick={() => setVisible(false)}>
-                <li>Custom design</li>
-              </NavLink>
+            <NavLink to="/" onClick={() => setVisible(false)}>
+              <li>Home page</li>
+            </NavLink>
+            <NavLink to="/colors" onClick={() => setVisible(false)}>
+              <li>Colors</li>
+            </NavLink>
+            <NavLink to="/portfolio" onClick={() => setVisible(false)}>
+              <li>Portfolio</li>
+            </NavLink>
+            <NavLink to="/custom-design" onClick={() => setVisible(false)}>
+              <li>Custom design</li>
+            </NavLink>
           </div>
         ) : null}
       </nav>

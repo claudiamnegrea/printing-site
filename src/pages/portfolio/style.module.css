@@ -1,35 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: row;
 }
 
-.product_tiles{
-    max-width: 1450px;
+.main_body {
     display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
+    flex-direction: column;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+    gap: 20px;
 }
-.filters{
+
+.sort {
+    color: #172B3A;
+    font-weight: 200;
+    font-size: 14px;
+}
+
+.sort select {
+    background-color: #FAF2F0;
+}
+
+.product_tiles {
+    max-width: 1450px;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+
+}
+
+.filters {
     margin: 30px;
     width: 250px;
     border: #172B3A;
 
 }
-.filter_title{
+
+.filter_title {
+    color: #172B3A;
     font-family: "Inter";
     font-weight: 200;
     font-size: 30px;
     margin: 10px;
 }
 
-.filters_list{
+.filters_list {
+    color: #172B3A;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -37,7 +58,7 @@
 }
 
 
-.clear_filters{
+.clear_filters {
     cursor: pointer;
     padding: 10px;
     font-family: "Inter";

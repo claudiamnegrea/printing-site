@@ -54,18 +54,6 @@ a:link {
     color: #172B3A;
 }
 
-.search {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    align-self: center;
-    outline: #172B3A;
-    stroke-width: 0.7;
-    overflow: visible;
-
-}
-
 .dropdown {
     position: relative;
     display: inline-block;

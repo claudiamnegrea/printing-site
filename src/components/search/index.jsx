@@ -17,6 +17,7 @@ export default function Search() {
       setVisible(true);
     } else {
       setVisible(false);
+      setShowSearch(false);
     }
   }, [location]);
   return (

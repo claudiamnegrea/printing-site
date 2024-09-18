@@ -8,6 +8,7 @@ import Cart from './pages/cart';
 import Footer from './components/footer';
 import Product from './pages/product';
 import BackToTop from './components/back-to-top';
+import PlaceOrder from './pages/place-order';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/portfolio' element={<Portfolio />} />
         <Route exact path='/cart' element={<Cart />} />
         <Route exact path='/products/:id' element={<Product />} />
+        <Route exact path='/place-order' element={<PlaceOrder />} />
       </Routes>
       </div>
       <BackToTop />

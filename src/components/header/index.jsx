@@ -4,12 +4,14 @@ import { CgProfile } from "react-icons/cg";
 import { BsCart2 } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { SlMenu } from "react-icons/sl";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import Search from "../search";
+import { GlobalContext } from "../../context";
 
 export default function Header() {
   const [visible, setVisible] = useState(false);
+  const { getCartCount } = useContext(GlobalContext)
   return (
     <div>
       <nav className={classes.header}>
@@ -42,7 +44,7 @@ export default function Header() {
             Cart
             <div className={classes.cart_icon_number}>
               <BsCart2 className={classes.cart_icon} />
-              <p className={classes.number}>10</p>
+              <p className={classes.number}>{getCartCount()}</p>
             </div>
           </button>
         </Link>

@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 20px;
+    align-content: center;
+    justify-content: center;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    color: #172B3A;
+    font-family: "Inter";
+    font-weight: 200;
+    font-size: 18px;
+    margin: 10px;
+    gap: 10px;
+    background-color: #FBF5F3;
+    box-shadow: 2px 4px 12px #d3d3d3;
+    border-radius: 20px;
+    padding: 20px;
+
+}
+
+.left h1 {
+    color: #172B3A;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.left input {
+    border-radius: 20px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #FAF2F0;
+    color: #172B3A;
+
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment_method {
+    color: #172B3A;
+    font-family: "Inter";
+    font-weight: 200;
+    font-size: 18px;
+    margin: 10px;
+    gap: 10px;
+    background-color: #FBF5F3;
+    box-shadow: 2px 4px 12px #d3d3d3;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.payment_method h1 {
+    color: #172B3A;
+    font-size: 24px;
+    font-weight: 300;
+}
+.payment{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap:20px;
+}
+
+
+.summary {
+    color: #172B3A;
+    font-family: "Inter";
+    font-weight: 200;
+    font-size: 18px;
+    margin: 10px;
+    gap: 10px;
+    background-color: #FBF5F3;
+    box-shadow: 2px 4px 12px #d3d3d3;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.summary h1 {
+    color: #172B3A;
+    font-size: 24px;
+    font-weight: 300;
+}
+.order{
+    padding: 20px;
+}
+
+.place_order{
+    justify-content: center;
+    align-items: center;
+    background-color: #03A0B5;
+    border-color: #04adc4dc;
+    stroke: #03A0B5;
+    stroke-opacity: 70%;
+    box-shadow: 2px 4px 6px 0px #0190A2;
+    width: 200px;
+    height: 40px;
+    border-radius: 16px;
+    font-family: 'Inter';
+    font-weight: 300;
+    font-size: 24px;
+    justify-content: center;
+    align-content: center;
+    margin: 10px;
+    
+}
+.place_order h1{
+    color: #172B3A;
+    font-family: "Inter";
+    font-weight: 300;
+    font-size: 24px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    
+}

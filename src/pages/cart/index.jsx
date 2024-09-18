@@ -3,10 +3,9 @@ import cart_class from "./style.module.css";
 import { useState, useEffect, useContext } from "react";
 import CartTile from "../../components/cart-tile";
 import { GlobalContext } from "../../context";
-
+import { Link } from "react-router-dom";
 export default function Cart() {
-  const [totalCart, setTotalCart] = useState(0);
-  const { cart } = useContext(GlobalContext);
+  const { totalCart, setTotalCart,cart } = useContext(GlobalContext);
 
   console.log(cart, totalCart);
 
@@ -36,9 +35,14 @@ export default function Cart() {
             )}
           </div>
         </div>
-        <div className={cart_class.total}>
-          <p>Total items: {cart.length}</p>
-          <p>Total: {totalCart}</p>
+        <div className={cart_class.right}>
+          <div className={cart_class.total}>
+            <p>Total items: {cart.length}</p>
+            <p>Total: {totalCart}</p>
+          </div>
+          <Link to="/place-order">
+            <button className={cart_class.continue}>Continue</button>
+          </Link>
         </div>
       </div>
     </div>

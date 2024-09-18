@@ -11,6 +11,20 @@ export default function GlobalState({ children }) {
   const [showSearch, setShowSearch] = useState(false);
   const { cart } = useSelector((state) => state);
   const [listOfProducts, setListOfProducts] = useState([]);
+  const [totalCart, setTotalCart] = useState(0);
+  const [shippingFee, setShippingFee] = useState(10);
+
+  const getCartCount = () => {
+    let totalCount = 0;
+    for (const item in cart) {
+      try {
+        totalCount += 1;
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    return totalCount;
+  };
 
   return (
     <GlobalContext.Provider
@@ -26,6 +40,11 @@ export default function GlobalState({ children }) {
         setShowSearch,
         listOfProducts,
         setListOfProducts,
+        getCartCount,
+        totalCart,
+        setTotalCart,
+        shippingFee,
+        setShippingFee,
       }}
     >
       {children}

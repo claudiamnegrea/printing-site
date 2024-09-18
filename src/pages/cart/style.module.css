@@ -28,6 +28,11 @@
     color: #172B3A;
 }
 
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .total{
     min-width: 450px;
     height: 200px;
@@ -48,4 +53,19 @@
     font-weight: 600;
     font-size: 40px;
     color: #172B3A;
+}
+.continue{
+    justify-content: center;
+    align-items: center;
+    background-color: #03A0B5;
+    border-color: #04adc4dc;
+    stroke: #03A0B5;
+    stroke-opacity: 70%;
+    box-shadow: 2px 4px 6px 0px #0190A2;
+    width: 200px;
+    height: 40px;
+    border-radius: 16px;
+    font-family: 'Inter';
+    font-weight: 300;
+    font-size: 24px;
 }

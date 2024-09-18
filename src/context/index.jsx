@@ -10,6 +10,7 @@ export default function GlobalState({ children }) {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const { cart } = useSelector((state) => state);
+  const [listOfProducts, setListOfProducts] = useState([]);
 
   return (
     <GlobalContext.Provider
@@ -23,6 +24,8 @@ export default function GlobalState({ children }) {
         setSearch,
         showSearch,
         setShowSearch,
+        listOfProducts,
+        setListOfProducts,
       }}
     >
       {children}

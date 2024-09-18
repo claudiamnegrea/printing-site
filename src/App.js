@@ -19,7 +19,7 @@ function App() {
         <Route exact path='/colors' element={<Colors />} />
         <Route exact path='/portfolio' element={<Portfolio />} />
         <Route exact path='/cart' element={<Cart />} />
-        <Route exact path='/product/:id' element={<Product />} />
+        <Route exact path='/products/:id' element={<Product />} />
       </Routes>
       </div>
       <BackToTop />

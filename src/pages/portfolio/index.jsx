@@ -6,7 +6,6 @@ import { useContext } from "react";
 import { GlobalContext } from "../../context";
 
 export default function Portfolio() {
-  const [listOfProducts, setListOfProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [countElements, setCountElements] = useState(0);
   const [disableButton, setDisableButton] = useState(false);
@@ -14,7 +13,8 @@ export default function Portfolio() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [sortType, setSortType] = useState("relevant");
-  const { search, showSearch } = useContext(GlobalContext);
+  const { listOfProducts, setListOfProducts, search, showSearch ,setProductData} =
+    useContext(GlobalContext);
 
   async function fetchListOfProducts() {
     try {
@@ -31,6 +31,7 @@ export default function Portfolio() {
         setFilteredItems(result);
         setCategories(result_cat);
         setLoading(false);
+        setProductData(null)
       }
       console.log(result);
       console.log(result_cat);
@@ -55,7 +56,6 @@ export default function Portfolio() {
 
   function filterProducts() {
     let productsCopy = listOfProducts.slice();
-
     if (showSearch && search) {
       productsCopy = productsCopy.filter((item) =>
         item.title.toLowerCase().includes(search.toLowerCase())
@@ -66,7 +66,6 @@ export default function Portfolio() {
         selectedCategories.includes(item.category)
       );
     }
-    console.log(productsCopy);
     if (productsCopy) {
       setFilteredItems(
         listOfProducts.filter((item) => productsCopy.includes(item))

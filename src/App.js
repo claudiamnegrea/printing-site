@@ -9,6 +9,7 @@ import Footer from './components/footer';
 import Product from './pages/product';
 import BackToTop from './components/back-to-top';
 import PlaceOrder from './pages/place-order';
+import Login from './pages/login';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path='/cart' element={<Cart />} />
         <Route exact path='/products/:id' element={<Product />} />
         <Route exact path='/place-order' element={<PlaceOrder />} />
+        <Route exact path='/login' element={<Login />} />
       </Routes>
       </div>
       <BackToTop />

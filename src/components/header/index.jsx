@@ -32,7 +32,7 @@ export default function Header() {
         </ul>
         <Search />
         <div className={classes.dropdown}>
-          <CgProfile className={classes.profile} />
+          <Link to= '/login'><CgProfile className={classes.profile} /></Link>
           <div className={classes.profile_items}>
             <p>Orders</p>
             <p>Logout</p>
